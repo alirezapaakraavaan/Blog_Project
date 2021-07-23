@@ -120,3 +120,12 @@ D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\Razor\Areas\Ad
 D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\Razor\Areas\Administration\Pages\_ViewStart.cshtml.g.cs
 D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\Razor\Areas\Administration\Pages\Index.cshtml.g.cs
 D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\Razor\Areas\Administration\Pages\Blog\ArticleCategories\Index.cshtml.g.cs
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\0_Framework.dll
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\0_Framework.pdb
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\ServiceHost.MvcApplicationPartsAssemblyInfo.cs
