@@ -50,5 +50,10 @@ namespace BlogManagement.Infrastructure.EFCore.Repository
 
             return query.OrderByDescending(x => x.ShowOrder).ToList();
         }
+
+        public string GetSlugBy(long id)
+        {
+            return _context.Articles.Select(x => new {x.Id, x.Slug}).FirstOrDefault(x => x.Id == id)?.Slug;
+        }
     }
 }
