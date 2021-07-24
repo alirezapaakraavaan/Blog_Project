@@ -1,4 +1,5 @@
 using _0_Framework.Application;
+using BlogManagement.Infrastructure.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -18,6 +19,10 @@ namespace ServiceHost
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpContextAccessor();
+            var connectionString = Configuration.GetConnectionString("BlogDB");
+            BlogManagementBootstrapper.Configure(services, connectionString);
+
             services.AddRazorPages();
             services.AddTransient<IFileUploader, FileUploader>();
         }
