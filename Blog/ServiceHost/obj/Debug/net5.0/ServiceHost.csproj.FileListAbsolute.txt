@@ -170,3 +170,6 @@ D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\Microsoft.Enti
 D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\Razor\Areas\Administration\Pages\Blog\Articles\Create.cshtml.g.cs
 D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\Razor\Areas\Administration\Pages\Blog\Articles\Edit.cshtml.g.cs
 D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\Razor\Areas\Administration\Pages\Blog\Articles\Index.cshtml.g.cs
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\01_BlogQuery.dll
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\01_BlogQuery.pdb
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\Razor\Pages\Shared\Components\LatestArticles\Default.cshtml.g.cs

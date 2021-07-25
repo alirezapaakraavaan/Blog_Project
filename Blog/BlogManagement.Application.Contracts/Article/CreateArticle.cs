@@ -11,8 +11,6 @@ namespace BlogManagement.Application.Contracts.Article
 
         public string ShortDescription { get; set; }
         public string Description { get; set; }
-
-        [Required(ErrorMessage = ValidationMessages.IsRequired)]
         public IFormFile Picture { get; set; }
 
         [Required(ErrorMessage = ValidationMessages.IsRequired)]

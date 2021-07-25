@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using _0_Framework.Application;
 using _0_Framework.Infrastructure;
 using BlogManagement.Application.Contracts.Article;
-using BlogManagement.Application.Contracts.ArticleCategory;
 using BlogManagement.Domain.ArticleAgg;
 using Microsoft.EntityFrameworkCore;
 
@@ -31,7 +32,7 @@ namespace BlogManagement.Infrastructure.EFCore.Repository
                 CanonicalAddress = x.CanonicalAddress,
                 CategoryId = x.CategoryId,
                 PictureTitle = x.PictureTitle,
-                PublishDate = x.PictureAlt,
+                PublishDate = x.PublishDate.ToString(CultureInfo.InvariantCulture),
                 ShortDescription = x.ShortDescription,
                 Title = x.Title
             }).FirstOrDefault(x => x.Id == id);
@@ -43,7 +44,7 @@ namespace BlogManagement.Infrastructure.EFCore.Repository
             {
                 Id = x.Id,
                 CategoryId = x.CategoryId,
-                ShortDescription = x.ShortDescription,
+                ShortDescription = x.ShortDescription.Substring(0, Math.Min(x.ShortDescription.Length, 50)) + "...",
                 Title = x.Title,
                 Picture = x.Picture,
                 Category = x.ArticleCategory.Name,
@@ -61,7 +62,8 @@ namespace BlogManagement.Infrastructure.EFCore.Repository
 
         public Article GetWithCategory(long id)
         {
-            return _context.Articles.Include(x => x.ArticleCategory).FirstOrDefault(x => x.Id == id);
+            return _context.Articles.Include(x => x.ArticleCategory)
+                .FirstOrDefault(x => x.Id == id);
         }
     }
 }

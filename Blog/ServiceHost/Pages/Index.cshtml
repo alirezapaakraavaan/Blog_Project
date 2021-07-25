@@ -1,7 +1,8 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "صفحه ی اصلی";
 }
 
-<p>علیرضا پاکروان</p>
+
+@await Component.InvokeAsync("LatestArticles")

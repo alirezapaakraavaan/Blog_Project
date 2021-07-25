@@ -21,3 +21,5 @@ D:\PROGRAMING\C#\Core\Blog\Code\Blog\BlogManagement.Infrastructure.Configuration
 D:\PROGRAMING\C#\Core\Blog\Code\Blog\BlogManagement.Infrastructure.Configuration\obj\Debug\net5.0\BlogManagement.Infrastructure.Configuration.dll
 D:\PROGRAMING\C#\Core\Blog\Code\Blog\BlogManagement.Infrastructure.Configuration\obj\Debug\net5.0\ref\BlogManagement.Infrastructure.Configuration.dll
 D:\PROGRAMING\C#\Core\Blog\Code\Blog\BlogManagement.Infrastructure.Configuration\obj\Debug\net5.0\BlogManagement.Infrastructure.Configuration.pdb
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\BlogManagement.Infrastructure.Configuration\bin\Debug\net5.0\01_BlogQuery.dll
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\BlogManagement.Infrastructure.Configuration\bin\Debug\net5.0\01_BlogQuery.pdb

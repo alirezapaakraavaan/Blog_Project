@@ -2509,6 +2509,19 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "01_BlogQuery/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "BlogManagement.Infrastructure.EFCore": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/01_BlogQuery.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/01_BlogQuery.dll": {}
+        }
+      },
       "0_Framework/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -2571,6 +2584,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "01_BlogQuery": "1.0.0",
           "BlogManagement.Application": "1.0.0",
           "BlogManagement.Application.Contracts": "1.0.0",
           "BlogManagement.Infrastructure.EFCore": "1.0.0",
@@ -8339,6 +8353,11 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "01_BlogQuery/1.0.0": {
+      "type": "project",
+      "path": "../01_BlogQuery/01_BlogQuery.csproj",
+      "msbuildProject": "../01_BlogQuery/01_BlogQuery.csproj"
     },
     "0_Framework/1.0.0": {
       "type": "project",
