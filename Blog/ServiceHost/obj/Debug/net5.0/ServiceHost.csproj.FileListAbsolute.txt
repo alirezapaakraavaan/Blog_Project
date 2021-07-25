@@ -167,3 +167,6 @@ D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\BlogManagement
 D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\Razor\Areas\Administration\Pages\Blog\ArticleCategories\Create.cshtml.g.cs
 D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\Razor\Areas\Administration\Pages\Blog\ArticleCategories\Edit.cshtml.g.cs
 D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\Razor\Areas\Administration\Pages\Blog\Articles\Create.cshtml.g.cs
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\Razor\Areas\Administration\Pages\Blog\Articles\Edit.cshtml.g.cs
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\Razor\Areas\Administration\Pages\Blog\Articles\Index.cshtml.g.cs

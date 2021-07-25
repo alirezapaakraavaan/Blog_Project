@@ -3,6 +3,7 @@ using System.Linq;
 using _0_Framework.Application;
 using _0_Framework.Infrastructure;
 using BlogManagement.Application.Contracts.Article;
+using BlogManagement.Application.Contracts.ArticleCategory;
 using BlogManagement.Domain.ArticleAgg;
 using Microsoft.EntityFrameworkCore;
 
