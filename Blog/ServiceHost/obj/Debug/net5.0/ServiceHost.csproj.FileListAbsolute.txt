@@ -173,3 +173,7 @@ D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\Razor\Areas\Ad
 D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\01_BlogQuery.dll
 D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\01_BlogQuery.pdb
 D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\Razor\Pages\Shared\Components\LatestArticles\Default.cshtml.g.cs
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\Razor\Pages\Article.cshtml.g.cs
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\Razor\Pages\ArticleCategory.cshtml.g.cs
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\Razor\Pages\Articles.cshtml.g.cs
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\Razor\Pages\Search.cshtml.g.cs

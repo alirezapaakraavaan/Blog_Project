@@ -12,40 +12,37 @@
 <section class="content">
     <div class="container">
         <div class="row">
-            <!-- Blog post-->
             <div class="post-content post-modern col-md-9">
-                <!-- Blog image post-->
                 @foreach (var article in Model)
                 {
                     <div class="post-item">
                         <div class="post-image">
-                            <a href="#">
+                            <a asp-page="./Article" asp-route-id="@article.Slug">
                                 <img alt="@article.PictureAlt" title="@article.Title" src="~/Theme/assets/images/blog/@article.Picture">
                             </a>
                         </div>
                         <div class="post-content-details">
                             <div class="post-title">
                                 <h3>
-                                    <a href="#">@article.Title</a>
+                                    <a asp-page="./Article" asp-route-id="@article.Slug">@article.Title</a>
                                 </h3>
                             </div>
                             <div class="post-description">
                                 <p>@article.ShortDescription</p>
                                 <div class="post-read-more">
-                                    <a class="read-more" href="blog-post.html">
-                                        read more
+                                    <a class="read-more" asp-page="./Article" asp-route-id="@article.Slug">
+                                        بیشتر بخوانید
                                         <i class="fa fa-long-arrow-right"></i>
                                     </a>
                                 </div>
                             </div>
                         </div>
-
                         <div class="post-meta">
                             <div class="post-date">
                                 <span class="post-comments-number">@article.PublishDate</span>
                             </div>
 
-                            <div class="post-comments">
+                            <div class="post-comments" style="padding-right: 10px">
                                 <a href="#">
                                     <i class="fa fa-comments-o"></i>
                                     <span class="post-comments-number">324</span>
@@ -55,13 +52,14 @@
                     </div>
                 }
 
-                <!-- pagination nav -->
                 <div class="text-center">
                     <div class="pagination-wrap">
                         <ul class="pagination">
                             <li>
                                 <a aria-label="Previous" href="#">
-                                    <span aria-hidden="true"><i class="fa fa-angle-left"></i></span>
+                                    <span aria-hidden="true">
+                                        <i class="fa fa-angle-left"></i>
+                                    </span>
 
                                 </a>
                             </li>
@@ -82,107 +80,35 @@
                             </li>
                             <li>
                                 <a aria-label="Next" href="#">
-                                    <span aria-hidden="true"><i class="fa fa-angle-right"></i></span>
+                                    <span aria-hidden="true">
+                                        <i class="fa fa-angle-right"></i>
+                                    </span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <!-- END: Blog post-->
-            <!-- Sidebar-->
             <div class="sidebar sidebar-modern col-md-3">
-                <!--widget newsletter-->
-                <div class="widget clearfix widget-newsletter">
-                    <script type="text/javascript">
-                        jQuery("#widget-subscribe-form-sidebar").validate({
-                            submitHandler: function (form) {
-                                jQuery(form).ajaxSubmit({
-                                    dataType: 'json',
-                                    success: function (text) {
-                                        if (text.response == 'success') {
-                                            $.notify({
-                                                message: "You have successfully subscribed to our mailing list."
-                                            }, {
-                                                type: 'success'
-                                            });
-                                            $(form)[0].reset();
-
-                                        } else {
-                                            $.notify({
-                                                message: text.message
-                                            }, {
-                                                type: 'warning'
-                                            });
-                                        }
-                                    }
-                                });
-                            }
-                        });
-
-                    </script>
-                </div>
-                <!--end: widget newsletter-->
-                <!--widget tags -->
-                <div class="widget clearfix widget-tags">
-                    <h4 class="widget-title">Tags</h4>
-                    <div class="tags">
-                        <a href="#">Design</a>
-                        <a href="#">Portfolio</a>
-                        <a href="#">Digital</a>
-                        <a href="#">Branding</a>
-                        <a href="#">HTML</a>
-                        <a href="#">Clean</a>
-                        <a href="#">Peace</a>
-                        <a href="#">Love</a>
-                        <a href="#">CSS3</a>
-                        <a href="#">jQuery</a>
-                    </div>
-                </div>
-                <!--end: widget tags -->
-                <!--widget blog articles-->
-                <div class="widget clearfix widget-blog-articles">
-                    <h4 class="widget-title">From our Blog</h4>
-                    <ul class="list-posts list-medium">
-                        <li>
-                            <a href="#">Printing and typesetting</a>
-                            <small>Jun 18 2015</small>
-                        </li>
-                        <li>
-                            <a href="#">Lorem Ipsum has been the industry's</a><small>Jun 18 2015</small>
-                        </li>
-                        <li>
-                            <a href="#">Ipsum and typesetting</a><small>Jun 18 2015</small>
-                        </li>
-                        <li>
-                            <a href="#">Specimen book</a><small>Jun 18 2015</small>
-                        </li>
-
-                    </ul>
-                </div>
-                <!--end: widget blog articles-->
-                <!--widget contact us-->
                 <div class="widget clearfix widget-contact-us" style="background-image: url('~/Theme/assets/images/world-map.png'); background-position: 50% 55px; background-repeat: no-repeat">
                     <h4 class="widget-title">Contact us</h4>
                     <ul class="list-large list-icons">
                         <li>
-                            <i class="fa fa-map-marker"></i>
+                            @*<i class="fa fa-map-marker"></i>*@
                             <strong>Address:</strong> 795 Folsom Ave, Suite 600
                             <br>San Francisco, CA 94107
                         </li>
-                        <li><i class="fa fa-phone"></i><strong>Phone:</strong> (123) 456-7890 </li>
                         <li>
-                            <i class="fa fa-envelope"></i><strong>Email:</strong> <a href="mailto:first.last@example.com">first.last@example.com</a>
+                            @*<i class="fa fa-phone"></i>*@
+                            <strong>Phone:</strong> (123) 456-7890
                         </li>
                         <li>
-                            <i class="fa fa-clock-o"></i>Monday - Friday: <strong>08:00 - 22:00</strong>
-                            <br>Saturday, Sunday: <strong>Closed</strong>
+                            @*<i class="fa fa-envelope"></i>*@
+                            <strong>Email:</strong> <a href="mailto:first.last@example.com">first.last@example.com</a>
                         </li>
                     </ul>
                 </div>
-                <!--end: widget contact us-->
             </div>
-            <!-- END: Sidebar-->
         </div>
     </div>
 </section>

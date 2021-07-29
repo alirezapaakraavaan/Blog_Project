@@ -9,7 +9,9 @@ namespace BlogManagement.Application.Contracts.Article
         [Required(ErrorMessage = ValidationMessages.IsRequired)]
         public string Title { get; set; }
 
+        [Required(ErrorMessage = ValidationMessages.IsRequired)]
         public string ShortDescription { get; set; }
+
         public string Description { get; set; }
         public IFormFile Picture { get; set; }
 

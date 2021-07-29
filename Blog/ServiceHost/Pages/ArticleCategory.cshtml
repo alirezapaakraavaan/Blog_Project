@@ -1,0 +1,69 @@
+﻿@page "{id?}"
+@model ServiceHost.Pages.ArticleCategoryModel
+@{
+    ViewData["Title"] = "صفحه ی گروه مقالات";
+}
+
+<section id="page-title" class="page-title-parallax page-title-center text-dark"
+         style="background-image:url(~/Theme/assets/images/parallax/page-title-parallax.jpg);">
+    <div class="container">
+        <div class="page-title col-md-8">
+            <h1>گروه مقالات</h1>
+        </div>
+        <div class="breadcrumb col-md-4">
+            <ul>
+                <li>
+                    <a asp-page="./Index">خانه</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section class="content">
+    <div class="container">
+        <div class="row">
+            @foreach (var articleCategory in Model.ArticleCategory)
+            {
+                <div class="post-content post-modern post-content-single col-md-9">
+                    <div class="post-item">
+                        <div class="post-image">
+                            <a asp-page="/Articles" asp-route-id="@articleCategory.Slug">
+                                <img alt="@articleCategory.PictureAlt" src="~/Theme/assets/images/blog/@articleCategory.Picture"
+                                     title="@articleCategory.PictureTitle">
+                            </a>
+                        </div>
+                        <div class="post-content-details">
+                            <div class="post-title">
+                                <h2 >@articleCategory.Name</h2>
+                            </div>
+                            <div class="post-description">
+                                <p>@Html.Raw(articleCategory.Description)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            
+            <div class="sidebar sidebar-modern col-md-3">
+                <div class="widget clearfix widget-contact-us" style="background-image: url('~/Theme/assets/images/world-map.png'); background-position: 50% 55px; background-repeat: no-repeat">
+                    <h4 class="widget-title">Contact us</h4>
+                    <ul class="list-large list-icons">
+                        <li>
+                            @*<i class="fa fa-map-marker"></i>*@
+                            <strong>Address:</strong> 795 Folsom Ave, Suite 600
+                            <br>San Francisco, CA 94107
+                        </li>
+                        <li>
+                            @*<i class="fa fa-phone"></i>*@
+                            <strong>Phone:</strong> (123) 456-7890
+                        </li>
+                        <li>
+                            @*<i class="fa fa-envelope"></i>*@
+                            <strong>Email:</strong> <a href="mailto:first.last@example.com">first.last@example.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -62,7 +62,8 @@ namespace BlogManagement.Infrastructure.EFCore.Repository
 
         public Article GetWithCategory(long id)
         {
-            return _context.Articles.Include(x => x.ArticleCategory)
+            return _context.Articles
+                .Include(x => x.ArticleCategory)
                 .FirstOrDefault(x => x.Id == id);
         }
     }

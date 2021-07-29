@@ -23,13 +23,14 @@ namespace ServiceHost.Areas.Administration.Pages.Blog.Articles
         public void OnGet(long id)
         {
             Command = _articleApplication.GetDetails(id);
-            ArticleCategories = new SelectList(_articleCategoryApplication.GetArticleCategories(), "Id", "Name");
+            ArticleCategories = new SelectList(_articleCategoryApplication.GetArticleCategories(),
+                "Id", "Name");
         }
 
         public IActionResult OnPost(EditArticle command)
         {
             var result = _articleApplication.Edit(command);
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index", result);
         }
     }
 }

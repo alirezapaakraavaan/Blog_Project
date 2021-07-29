@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id}"
 @model ServiceHost.Areas.Administration.Pages.Blog.Articles.EditModel
 
 @{
@@ -114,9 +114,9 @@
                                 <span asp-validation-for="Command.PublishDate" class="error"></span>
                             </div>
                         </div>
-                        <input type="hidden" asp-for="Command.Id" value="Command.Id" />
+                        <input type="hidden" asp-for="Command.Id" value="@Model.Command.Id" />
                     </div>
-                    <button type="submit" class="btn-success">ایجاد</button>
+                    <button type="submit" class="btn-success">ویرایش</button>
                     <a asp-page="./Index" class="btn-secondary">بازگشت</a>
                 </form>
             </div>
