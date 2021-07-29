@@ -12,6 +12,8 @@ namespace _01_BlogQuery.Contracts.ArticleCategory
         public string PictureTitle { get; set; }
         public string Description { get; set; }
         public string Slug { get; set; }
+        public string Keywords { get; set; }
+        public string MetaDescription { get; set; }
         public string PublishDate { get; set; }
         public long ArticleCount { get; set; }
         public List<ArticleQueryModel> Articles { get; set; }

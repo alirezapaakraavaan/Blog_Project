@@ -10,7 +10,6 @@ namespace ServiceHost.Pages
         private readonly IArticleQuery _articleQuery;
         private readonly IArticleCategoryQuery _articleCategoryQuery;
         public List<ArticleQueryModel> Articles;
-        public ArticleQueryModel Article;
         public List<ArticleCategoryQueryModel> ArticleCategories;
         public ArticleCategoryQueryModel ArticleCategory;
 

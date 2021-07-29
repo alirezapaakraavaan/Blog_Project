@@ -5,7 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <link rel="shortcut icon" href="~/Theme/assets/images/favicon.png">
-    <title>@ViewData["Title"] | وبلاگ پاکروان</title>
+    @if (@ViewData["Title"] != null)
+    {
+        <title>@ViewData["Title"] | وبلاگ پاکروان</title>
+    }
+    else
+    {
+        <title>وبلاگ پاکروان</title>
+    }
+    <meta name="keywords" content="@ViewData["keywords"]"/>
+    <meta name="description" content="@ViewData["metaDescription"]"/>
     <link href="~/Theme/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/Theme/assets/vendor/fontawesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
     <link href="~/Theme/assets/vendor/animateit/animate.min.css" rel="stylesheet">
@@ -109,15 +118,51 @@
                         <div class="col-md-6">
                             <div class="social-icons">
                                 <ul>
-                                    <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li class="social-google"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li class="social-pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                    <li class="social-vimeo"><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
-                                    <li class="social-linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li class="social-dribbble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                    <li class="social-youtube"><a href="#"><i class="fa fa-youtube-play"></i></a></li>
-                                    <li class="social-rss"><a href="#"><i class="fa fa-rss"></i></a></li>
+                                    <li class="social-facebook">
+                                        <a href="#">
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li class="social-twitter">
+                                        <a href="#">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li class="social-google">
+                                        <a href="#">
+                                            <i class="fa fa-google-plus"></i>
+                                        </a>
+                                    </li>
+                                    <li class="social-pinterest">
+                                        <a href="#">
+                                            <i class="fa fa-pinterest"></i>
+                                        </a>
+                                    </li>
+                                    <li class="social-vimeo">
+                                        <a href="#">
+                                            <i class="fa fa-vimeo-square"></i>
+                                        </a>
+                                    </li>
+                                    <li class="social-linkedin">
+                                        <a href="#">
+                                            <i class="fa fa-linkedin"></i>
+                                        </a>
+                                    </li>
+                                    <li class="social-dribbble">
+                                        <a href="#">
+                                            <i class="fa fa-dribbble"></i>
+                                        </a>
+                                    </li>
+                                    <li class="social-youtube">
+                                        <a href="#">
+                                            <i class="fa fa-youtube-play"></i>
+                                        </a>
+                                    </li>
+                                    <li class="social-rss">
+                                        <a href="#">
+                                            <i class="fa fa-rss"></i>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -126,7 +171,9 @@
             </div>
         </footer>
     </div>
-    <a class="gototop gototop-button" href="#"><i class="fa fa-chevron-up"></i></a>
+    <a class="gototop gototop-button" href="#">
+        <i class="fa fa-chevron-up"></i>
+    </a>
     <script src="~/Theme/assets/js/theme-functions.js"></script>
     <script src="~/Theme/assets/js/custom.js"></script>
 </body>

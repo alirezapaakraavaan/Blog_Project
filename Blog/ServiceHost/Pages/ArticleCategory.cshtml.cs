@@ -7,7 +7,7 @@ namespace ServiceHost.Pages
     public class ArticleCategoryModel : PageModel
     {
         private readonly IArticleCategoryQuery _articleCategoryQuery;
-        public List<ArticleCategoryQueryModel> ArticleCategory;
+        public List<ArticleCategoryQueryModel> ArticleCategories;
 
         public ArticleCategoryModel(IArticleCategoryQuery articleCategoryQuery)
         {
@@ -16,7 +16,7 @@ namespace ServiceHost.Pages
 
         public void OnGet()
         {
-            ArticleCategory = _articleCategoryQuery.GetArticleCategories();
+            ArticleCategories = _articleCategoryQuery.GetArticleCategories();
         }
     }
 }

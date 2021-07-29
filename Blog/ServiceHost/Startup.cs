@@ -1,3 +1,5 @@
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
 using _0_Framework.Application;
 using BlogManagement.Infrastructure.Configuration;
 using Microsoft.AspNetCore.Builder;
@@ -22,6 +24,9 @@ namespace ServiceHost
             services.AddHttpContextAccessor();
             var connectionString = Configuration.GetConnectionString("BlogDB");
             BlogManagementBootstrapper.Configure(services, connectionString);
+
+            services.AddSingleton(
+                HtmlEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Arabic));
 
             services.AddRazorPages();
             services.AddTransient<IFileUploader, FileUploader>();

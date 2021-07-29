@@ -8,7 +8,7 @@ namespace ServiceHost.Pages
     {
         public string Value;
         private readonly IArticleQuery _articleQuery;
-        public List<ArticleQueryModel> Article;
+        public List<ArticleQueryModel> Articles;
 
         public SearchModel(IArticleQuery articleQuery)
         {
@@ -18,7 +18,7 @@ namespace ServiceHost.Pages
         public void OnGet(string value)
         {
             Value = value;
-            Article = _articleQuery.Search(value);
+            Articles = _articleQuery.Search(value);
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿@page "{id?}"
 @model ServiceHost.Pages.ArticleCategoryModel
 @{
-    ViewData["Title"] = "صفحه ی گروه مقالات";
+    ViewData["Title"] = "مقالات";
 }
 
 <section id="page-title" class="page-title-parallax page-title-center text-dark"
@@ -22,7 +22,7 @@
 <section class="content">
     <div class="container">
         <div class="row">
-            @foreach (var articleCategory in Model.ArticleCategory)
+            @foreach (var articleCategory in Model.ArticleCategories)
             {
                 <div class="post-content post-modern post-content-single col-md-9">
                     <div class="post-item">
@@ -34,7 +34,7 @@
                         </div>
                         <div class="post-content-details">
                             <div class="post-title">
-                                <h2 >@articleCategory.Name</h2>
+                                <h2>@articleCategory.Name</h2>
                             </div>
                             <div class="post-description">
                                 <p>@Html.Raw(articleCategory.Description)</p>
@@ -43,7 +43,7 @@
                     </div>
                 </div>
             }
-            
+
             <div class="sidebar sidebar-modern col-md-3">
                 <div class="widget clearfix widget-contact-us" style="background-image: url('~/Theme/assets/images/world-map.png'); background-position: 50% 55px; background-repeat: no-repeat">
                     <h4 class="widget-title">Contact us</h4>
