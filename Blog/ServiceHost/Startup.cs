@@ -2,6 +2,7 @@ using System.Text.Encodings.Web;
 using System.Text.Unicode;
 using _0_Framework.Application;
 using BlogManagement.Infrastructure.Configuration;
+using CommentManagement.Infrastructure.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -24,6 +25,7 @@ namespace ServiceHost
             services.AddHttpContextAccessor();
             var connectionString = Configuration.GetConnectionString("BlogDB");
             BlogManagementBootstrapper.Configure(services, connectionString);
+            CommentManagementBootstrapper.Configure(services, connectionString);
 
             services.AddSingleton(
                 HtmlEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Arabic));

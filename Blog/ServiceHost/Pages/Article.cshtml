@@ -1,6 +1,6 @@
 ﻿@page "{id}"
+@using _01_BlogQuery.Contracts.Comment
 @model ServiceHost.Pages.ArticleModel
-
 @{
     ViewData["Title"] = Model.Article.Title;
     ViewData["keywords"] = Model.Article.KeywordList;
@@ -54,103 +54,74 @@
                         <div class="post-comments">
                             <a href="#">
                                 <i class="fa fa-comments-o"></i>
-                                <span class="post-comments-number">324</span>
+                                <span class="post-comments-number">@Model.Article.Comments.Count</span>
                             </a>
                         </div>
                     </div>
                 </div>
                 <div id="comments" class="comments">
                     <div class="heading">
-                        <h4 class="comments-title">Comments <small class="number">(4)</small></h4>
+                        <h4 class="comments-title">نظرات <small class="number">(@Model.Article.Comments.Count)</small></h4>
                     </div>
-                    <div class="comment">
-                        <a href="#" class="pull-left">
-                            <img alt="" src="~/Theme/assets/images/team/1.jpg" class="avatar">
-                        </a>
-                        <div class="media-body">
-                            <h4 class="media-heading">Alea Grande</h4>
-                            <p class="time">Feb 25, 2015 at 9:30 PM</p>
-                            <p>Maecenas nec iaculis turpis, eget congue massa. Ut ultrices consectetur eleifend. Nullam nisl dui, congue in mi non, dapibus adipiscing metus. Donec mollis semper rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed euismod neque. Aliquam eget malesuada enim, eu interdum elit. Sed sagittis ornare velit a congue.</p>
-                            <a href="#" class="comment-reply pull-right"><i class="fa fa-reply"></i> Reply</a>
-                        </div>
-                    </div>
-                    <div class="comment">
-                        <a href="#" class="pull-left">
-                            <img alt="" src="~/Theme/assets/images/team/2.jpg" class="avatar">
-                        </a>
-                        <div class="media-body">
-                            <h4 class="media-heading">Juna Smith</h4>
-                            <p class="time">Jan 18, 2015 at 10:30 PM</p>
-                            <p>Nullam nisl dui, congue in mi non, dapibus adipiscing metus. Donec mollis semper rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed euismod neque. Aliquam eget malesuada enim, eu interdum elit. Sed sagittis ornare velit a congue.</p>
-                            <a href="#" class="comment-reply pull-right"><i class="fa fa-reply"></i> Reply</a>
-                        </div>
-                        <div class="comment comment-replied">
-                            <a href="#" class="pull-left">
-                                <img alt="" src="images/team/3.jpg" class="avatar">
+                    @foreach (var comment in Model.Article.Comments)
+                    {
+                        <div class="comment">
+                            <a href="#" class="pull-left" id="comment-@comment.Id">
+                                <img alt="" src="~/Theme/assets/images/team/2.jpg" class="avatar">
                             </a>
                             <div class="media-body">
-                                <h4 class="media-heading">Ariol Smith</h4>
-                                <p class="time">Jun 24, 2015 at 14:28 PM</p>
-                                <p>Ut ultrices consectetur eleifend. Nullam nisl dui, congue in mi non, dapibus adipiscing metus. Donec mollis semper rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed euismod neque. Aliquam eget malesuada enim, eu interdum elit. Sed sagittis ornare velit a congue.</p>
-                                <a href="#" class="comment-reply pull-right"><i class="fa fa-reply"></i> Reply</a>
+                                <h4 class="media-heading">@comment.Name</h4>
+                                <p class="time">@comment.CreationDate</p>
+                                <p>@comment.Message</p>
+                                @if (comment.ParentId > 0)
+                                {
+                                        <span>در پاسخ به: </span><a href="#comment-@comment.Id">@comment.ParentName</a><br/>
+                                }
+                                <a href="#postComment" onclick='$("#commentParentId").val("@comment.Id")' class="comment-reply pull-right">
+                                    <i class="fa fa-reply"></i> جواب
+                                </a>
                             </div>
                         </div>
-                    </div>
-                    <div class="comment">
-                        <a href="#" class="pull-left">
-                            <img alt="" src="~/Theme/assets/images/team/4.jpg" class="avatar">
-                        </a>
-                        <div class="media-body">
-                            <h4 class="media-heading">Dia Perry</h4>
-                            <p class="time">Jun 24, 2015 at 14:28 PM</p>
-                            <p>Donec mollis semper rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed euismod neque. Aliquam eget malesuada enim, eu interdum elit. Donec mollis semper rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed euismod neque. Aliquam eget malesuada enim, eu interdum elit. Sed sagittis ornare velit a congue. Sed sagittis ornare velit a congue. Maecenas nec iaculis turpis, eget congue massa. Ut ultrices consectetur eleifend. Nullam nisl dui, congue in mi non, dapibus adipiscing metus. </p>
-                            <a href="#" class="comment-reply pull-right"><i class="fa fa-reply"></i> Reply</a>
-                        </div>
-                    </div>
+                    }
+                    
                 </div>
-                <div class="comment-form">
+                <div class="comment-form" id="postComment">
                     <div class="heading">
-                        <h4>Leave a comment</h4>
+                        <h4>نطر خود را به اشتراک بگذارید</h4>
                     </div>
-                    <form class="form-gray-fields">
+                    <form class="form-gray-fields" method="post">
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="name" class="upper">Your Name</label>
-                                    <input type="text" aria-required="true" id="name" placeholder="Enter name" name="senderName" class="form-control required">
+                                    <label for="name" class="upper">نام کامل</label>
+                                    <input type="text" aria-required="true" id="name" placeholder="نام خود را بنویسید" name="name" class="form-control required">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="email" class="upper">Your Email</label>
-                                    <input type="email" aria-required="true" id="email" placeholder="Enter email" name="senderEmail" class="form-control required email">
+                                    <label for="email" class="upper">ایمیل</label>
+                                    <input type="email" aria-required="true" id="email" placeholder="ایمیل خود را بنویسید" name="email" class="form-control required email">
                                 </div>
                             </div>
-
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="phone" class="upper">Your Phone</label>
-                                    <input type="text" aria-required="true" id="phone" placeholder="Enter phone" name="phone" class="form-control required">
-                                </div>
-                            </div>
-
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="comment" class="upper">Your comment</label>
-                                    <textarea aria-required="true" id="comment" placeholder="Enter comment" rows="9" name="comment" class="form-control required"></textarea>
+                                    <label for="comment" class="upper">نظر</label>
+                                    <textarea aria-required="true" id="message" placeholder="نظر خود را بنویسید" rows="9" name="message" class="form-control required"></textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group text-center">
-                                    <button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane"></i>&nbsp;Post comment</button>
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane"></i>&nbsp;ارسال نظر</button>
                                 </div>
                             </div>
                         </div>
-
+                        <input type="hidden" name="ownerRecordId" value="@Model.Article.Id" />
+                        <input type="hidden" name="articleSlug" value="@Model.Article.Slug" />
+                        <input type="hidden" name="parentId" id="commentParentId" value="" />
                     </form>
                 </div>
             </div>

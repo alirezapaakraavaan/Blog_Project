@@ -177,3 +177,14 @@ D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\Razor\Pages\Ar
 D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\Razor\Pages\ArticleCategory.cshtml.g.cs
 D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\Razor\Pages\Articles.cshtml.g.cs
 D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\Razor\Pages\Search.cshtml.g.cs
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\CommentManagement.Application.Contracts.dll
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\CommentManagement.Application.Contracts.pdb
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\obj\Debug\net5.0\Razor\Areas\Administration\Pages\Blog\Comment\Index.cshtml.g.cs
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\CommentManagement.Application.dll
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\CommentManagement.Domain.dll
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\CommentManagement.Infrastructure.Configuration.dll
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\CommentManagement.Infrastructure.EFCore.dll
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\CommentManagement.Infrastructure.Configuration.pdb
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\CommentManagement.Application.pdb
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\CommentManagement.Domain.pdb
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\ServiceHost\bin\Debug\net5.0\CommentManagement.Infrastructure.EFCore.pdb

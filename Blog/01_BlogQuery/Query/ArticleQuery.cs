@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using _0_Framework.Application;
 using _01_BlogQuery.Contracts.Article;
+using _01_BlogQuery.Contracts.Comment;
 using BlogManagement.Infrastructure.EFCore;
+using CommentManagement.Infrastructure.EfCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace _01_BlogQuery.Query
@@ -11,10 +13,12 @@ namespace _01_BlogQuery.Query
     public class ArticleQuery : IArticleQuery
     {
         private readonly BlogContext _context;
+        private readonly CommentContext _commentContext;
 
-        public ArticleQuery(BlogContext context)
+        public ArticleQuery(BlogContext context, CommentContext commentContext)
         {
             _context = context;
+            _commentContext = commentContext;
         }
 
         public ArticleQueryModel GetArticleDetails(string slug)
@@ -24,6 +28,7 @@ namespace _01_BlogQuery.Query
                 .Where(x => x.PublishDate <= DateTime.Now)
                 .Select(x => new ArticleQueryModel
                 {
+                    Id = x.Id,
                     Slug = x.Slug,
                     PublishDate = x.PublishDate.ToFarsi(),
                     CanonicalAddress = x.CanonicalAddress,
@@ -42,6 +47,27 @@ namespace _01_BlogQuery.Query
             if (!string.IsNullOrWhiteSpace(article.Keywords))
                 article.KeywordList = article.Keywords.Split(",").ToList();
 
+            var comments = _commentContext.Comments
+                .Where(x => !x.IsCanceled)
+                .Where(x => x.IsConfirmed)
+                .Where(x => x.Type == CommentType.Article)
+                .Where(x => x.OwnerRecordId == article.Id)
+                .Select(x => new CommentQueryModel
+                {
+                    Id = x.Id,
+                    Message = x.Message,
+                    Name = x.Name,
+                    ParentId = x.ParentId,
+                    CreationDate = x.CreationDate.ToFarsi()
+                }).OrderByDescending(x => x.Id).ToList();
+
+            foreach (var comment in comments)
+            {
+                if (comment.ParentId > 0)
+                    comment.ParentName = comments.FirstOrDefault(x => x.Id == comment.ParentId)?.Name;
+            }
+
+            article.Comments = comments;
             return article;
         }
 
@@ -52,6 +78,7 @@ namespace _01_BlogQuery.Query
                 .Where(x => x.PublishDate <= DateTime.Now)
                 .Select(x => new ArticleQueryModel
                 {
+                    Id = x.Id,
                     Slug = x.Slug,
                     Picture = x.Picture,
                     PictureAlt = x.PictureAlt,
@@ -69,6 +96,7 @@ namespace _01_BlogQuery.Query
                 .Where(x => x.PublishDate <= DateTime.Now && x.CategoryId == x.ArticleCategory.Id)
                 .Select(x => new ArticleQueryModel
                 {
+                    Id = x.Id,
                     Slug = x.Slug,
                     Picture = x.Picture,
                     CategoryId = x.ArticleCategory.Id,
@@ -86,6 +114,7 @@ namespace _01_BlogQuery.Query
         {
             var query = _context.Articles.Select(x => new ArticleQueryModel
             {
+                Id = x.Id,
                 Title = x.Title,
                 Description = x.Description,
                 ShortDescription = x.ShortDescription,
@@ -104,6 +133,14 @@ namespace _01_BlogQuery.Query
                     || x.CategoryName.Contains(value));
 
             return query.ToList();
+        }
+
+        public CommentStatus CheckCount(CommentCount command)
+        {
+            return new CommentStatus
+            {
+                CommentCount = _commentContext.Comments.Count()
+            };
         }
     }
 }

@@ -8,5 +8,6 @@ namespace _01_BlogQuery.Contracts.Article
         List<ArticleQueryModel> LatestArticles();
         List<ArticleQueryModel> ArticlesBy(string slug);
         List<ArticleQueryModel> Search(string value);
+        CommentStatus CheckCount(CommentCount command);
     }
 }

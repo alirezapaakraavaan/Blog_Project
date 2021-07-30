@@ -19,3 +19,9 @@ D:\PROGRAMING\C#\Core\Blog\Code\Blog\01_BlogQuery\obj\Debug\net5.0\01_BlogQuery.
 D:\PROGRAMING\C#\Core\Blog\Code\Blog\01_BlogQuery\obj\Debug\net5.0\01_BlogQuery.dll
 D:\PROGRAMING\C#\Core\Blog\Code\Blog\01_BlogQuery\obj\Debug\net5.0\ref\01_BlogQuery.dll
 D:\PROGRAMING\C#\Core\Blog\Code\Blog\01_BlogQuery\obj\Debug\net5.0\01_BlogQuery.pdb
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\01_BlogQuery\bin\Debug\net5.0\CommentManagement.Application.Contracts.dll
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\01_BlogQuery\bin\Debug\net5.0\CommentManagement.Domain.dll
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\01_BlogQuery\bin\Debug\net5.0\CommentManagement.Infrastructure.EFCore.dll
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\01_BlogQuery\bin\Debug\net5.0\CommentManagement.Infrastructure.EFCore.pdb
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\01_BlogQuery\bin\Debug\net5.0\CommentManagement.Application.Contracts.pdb
+D:\PROGRAMING\C#\Core\Blog\Code\Blog\01_BlogQuery\bin\Debug\net5.0\CommentManagement.Domain.pdb
