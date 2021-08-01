@@ -2,6 +2,6 @@
 {
     public class CommentCount
     {
-        public long ArticleId { get; set; }
+        public long ownerRecordId { get; set; }
     }
 }

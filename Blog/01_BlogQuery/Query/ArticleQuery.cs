@@ -139,7 +139,7 @@ namespace _01_BlogQuery.Query
         {
             return new CommentStatus
             {
-                CommentCount = _commentContext.Comments.Count()
+                CommentCount = _commentContext.Comments.Count(x=>x.OwnerRecordId == command.ownerRecordId)
             };
         }
     }

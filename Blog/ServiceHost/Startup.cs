@@ -1,6 +1,7 @@
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
 using _0_Framework.Application;
+using AccountManagement.Infrastructure.Configuration;
 using BlogManagement.Infrastructure.Configuration;
 using CommentManagement.Infrastructure.Configuration;
 using Microsoft.AspNetCore.Builder;
@@ -26,10 +27,12 @@ namespace ServiceHost
             var connectionString = Configuration.GetConnectionString("BlogDB");
             BlogManagementBootstrapper.Configure(services, connectionString);
             CommentManagementBootstrapper.Configure(services, connectionString);
+            AccountManagementBootstrapper.Configure(services, connectionString);
 
             services.AddSingleton(
                 HtmlEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Arabic));
 
+            services.AddSingleton<IPasswordHasher, PasswordHasher>();
             services.AddRazorPages();
             services.AddTransient<IFileUploader, FileUploader>();
         }
