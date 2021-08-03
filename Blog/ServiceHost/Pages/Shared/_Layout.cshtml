@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using _0_Framework.Application
+@inject IAuthHelper AuthHelper;
+@{
+    var currentAccount = AuthHelper.CurrentAccountInfo();
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -13,8 +18,8 @@
     {
         <title>وبلاگ پاکروان</title>
     }
-    <meta name="keywords" content="@ViewData["keywords"]"/>
-    <meta name="description" content="@ViewData["metaDescription"]"/>
+    <meta name="keywords" content="@ViewData["keywords"]" />
+    <meta name="description" content="@ViewData["metaDescription"]" />
     <link href="~/Theme/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/Theme/assets/vendor/fontawesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
     <link href="~/Theme/assets/vendor/animateit/animate.min.css" rel="stylesheet">
@@ -59,11 +64,26 @@
                     <div class="navbar-collapse collapse main-menu-collapse navigation-wrap">
                         <div class="container">
                             <nav id="mainMenu" class="main-menu mega-menu">
-                                <ul class="main-menu">
+                                <ul class="main-menu nav nav-pills">
                                     <li>
                                         <a asp-page="/ArticleCategory" style="color: black; font-size: 14px">
                                             گروه مقالات
                                         </a>
+                                    </li>
+                                    <li>
+                                        @if (AuthHelper.IsAuthenticated())
+                                        {
+                                            <a asp-page="/Account" asp-page-handler="Logout" style="color: black; font-size: 14px">
+                                                خروج
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a asp-page="/Account" asp-page-handler="Login" style="color: black; font-size: 14px">
+                                                ورود/ثبت نام
+                                            </a>
+                                        }
+
                                     </li>
                                 </ul>
                             </nav>

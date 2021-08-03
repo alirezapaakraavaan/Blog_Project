@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Account\" />
+    <Folder Include="Role\" />
   </ItemGroup>
 
   <ItemGroup>
