@@ -21,6 +21,10 @@ namespace AccountManagement.Domain.AccountAgg
             Password = password;
             ProfilePhoto = profilePhoto;
             RoleId = roleId;
+
+            if (RoleId == 0)
+                RoleId = 2;
+
             Username = username;
         }
 

@@ -33,7 +33,11 @@
             <div class="col-md-6">
                 <h3 class="text-uppercase">ثبت نام</h3>
                 <div class="m-t-30">
-                    <form id="widget-contact-form" role="form" method="post">
+                    @if (Model.RegisterMessage != null)
+                    {
+                        <div class="alert alert-danger">@Model.RegisterMessage</div>
+                    }
+                    <form method="post" asp-page-handler="Register">
                         <div class="row">
                             <div class="form-group col-sm-6">
                                 <label for="name">نام کامل</label>
@@ -43,7 +47,7 @@
                             <div class="form-group col-sm-6">
                                 <label for="mobile">موبایل</label>
                                 <input type="text" aria-required="true" name="mobile" class="form-control
-                                       required email" placeholder="شماره تماس خود را وارد کنید">
+                                       required" placeholder="شماره تماس خود را وارد کنید">
                             </div>
                             <div class="form-group col-sm-12">
                                 <label for="name">نام کاربری</label>
@@ -64,46 +68,17 @@
                             </div>
                         </div>
                         <input type="text" class="hidden" id="widget-contact-form-antispam" name="widget-contact-form-antispam" value="" />
-                        <button class="btn btn-primary" type="submit" id="form-submit">ثبت نام</button>
+                        <button class="btn btn-primary" type="submit">ثبت نام</button>
                     </form>
-                    <script type="text/javascript">
-                        jQuery("#widget-contact-form").validate({
-                            submitHandler: function (form) {
-
-                                jQuery(form).ajaxSubmit({
-                                    success: function (text) {
-                                        if (text.response == 'success') {
-                                            $.notify({
-                                                message: "We have <strong>successfully</strong> received your Message and will get Back to you as soon as possible."
-                                            },
-                                                {
-                                                    type: 'success'
-                                                });
-                                            $(form)[0].reset();
-
-                                        } else {
-                                            $.notify({
-                                                message: text.message
-                                            },
-                                                {
-                                                    type: 'danger'
-                                                });
-                                        }
-                                    }
-                                });
-                            }
-                        });
-
-                    </script>
                 </div>
             </div>
 
             <div class="col-md-6" style="right: 200px;">
                 <h3 class="text-uppercase">ورود</h3>
                 <div class="m-t-30">
-                    @if (Model.Message != null)
+                    @if (Model.LoginMessage != null)
                     {
-                        <div class="alert alert-danger">@Model.Message</div>
+                        <div class="alert alert-danger">@Model.LoginMessage</div>
                     }
                     <form id="widget-contact-form" role="form" method="post" asp-page-handler="Login">
                         <div class="row">
@@ -123,35 +98,6 @@
                         <input type="text" class="hidden" id="widget-contact-form-antispam" name="widget-contact-form-antispam" value="" />
                         <button class="btn btn-primary" type="submit" id="form-submit">ورود</button>
                     </form>
-                    <script type="text/javascript">
-                        jQuery("#widget-contact-form").validate({
-                            submitHandler: function (form) {
-
-                                jQuery(form).ajaxSubmit({
-                                    success: function (text) {
-                                        if (text.response == 'success') {
-                                            $.notify({
-                                                message: "We have <strong>successfully</strong> received your Message and will get Back to you as soon as possible."
-                                            },
-                                                {
-                                                    type: 'success'
-                                                });
-                                            $(form)[0].reset();
-
-                                        } else {
-                                            $.notify({
-                                                message: text.message
-                                            },
-                                                {
-                                                    type: 'danger'
-                                                });
-                                        }
-                                    }
-                                });
-                            }
-                        });
-
-                    </script>
                 </div>
             </div>
         </div>

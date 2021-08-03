@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
 using _0_Framework.Application;
+using _0_Framework.Infrastructure;
 using AccountManagement.Infrastructure.Configuration;
 using BlogManagement.Infrastructure.Configuration;
 using CommentManagement.Infrastructure.Configuration;
@@ -45,13 +47,20 @@ namespace ServiceHost
                     o.AccessDeniedPath = new PathString("/AccessDenied");
                 });
 
+            services.AddAuthorization(options => options.AddPolicy("AdminArea",
+                builder => builder.RequireRole(new List<string> {Roles.Administrator})));
+
             services.AddSingleton(
                 HtmlEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Arabic));
-
             services.AddSingleton<IPasswordHasher, PasswordHasher>();
-            services.AddRazorPages();
             services.AddTransient<IFileUploader, FileUploader>();
             services.AddTransient<IAuthHelper, AuthHelper>();
+
+            services.AddRazorPages()
+                .AddRazorPagesOptions(options =>
+                {
+                    options.Conventions.AuthorizeAreaFolder("Administration", "/", "AdminArea");
+                });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

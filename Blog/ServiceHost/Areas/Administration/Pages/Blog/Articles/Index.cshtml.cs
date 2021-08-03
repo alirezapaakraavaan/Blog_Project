@@ -1,11 +1,14 @@
 using System.Collections.Generic;
+using _0_Framework.Infrastructure;
 using BlogManagement.Application.Contracts.Article;
 using BlogManagement.Application.Contracts.ArticleCategory;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ServiceHost.Areas.Administration.Pages.Blog.Articles
 {
+    [Authorize(Roles = Roles.Administrator)]
     public class IndexModel : PageModel
     {
         public ArticleSearchModel SearchModel;

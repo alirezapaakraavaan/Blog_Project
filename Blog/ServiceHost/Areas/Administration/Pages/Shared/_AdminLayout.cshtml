@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using _0_Framework.Application
+@using _0_Framework.Infrastructure
+@inject IAuthHelper AuthHelper;
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -164,9 +167,13 @@
         <div class="left side-menu">
             <div class="sidebar-inner slimscrollleft">
                 <div class="user-details">
-                    <div class="pull-right">
-                        <img src="~/AdminTheme/assets/images/users/Me.png" alt="" class="thumb-md img-circle">
-                    </div>
+                    @if (AuthHelper.CurrentAccountRole() == Roles.Administrator)
+                    {
+                        <div class="pull-right">
+                            <img src="~/AdminTheme/assets/images/users/Me.png" alt="" class="thumb-md img-circle">
+                        </div>
+                    }
+
                 </div>
                 <!--- Divider -->
                 <div id="sidebar-menu">
