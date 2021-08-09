@@ -8,17 +8,20 @@ namespace AccountManagement.Domain.AccountAgg
         public string Fullname { get; private set; }
         public string Username { get; private set; }
         public string Password { get; private set; }
+        public string RePassword { get; set; }
         public string Mobile { get; private set; }
         public long RoleId { get; private set; }
         public Role Role { get; private set; }
         public string ProfilePhoto { get; private set; }
 
-        public Account(string fullname, string mobile, string password, string profilePhoto, long roleId,
+        public Account(string fullname, string mobile, string password, string rePassword, string profilePhoto,
+            long roleId,
             string username)
         {
             Fullname = fullname;
             Mobile = mobile;
             Password = password;
+            RePassword = rePassword;
             ProfilePhoto = profilePhoto;
             RoleId = roleId;
 

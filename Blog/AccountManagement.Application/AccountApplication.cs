@@ -29,10 +29,15 @@ namespace AccountManagement.Application
                 return operation.Failed(ApplicationMessages.DuplicatedRecord);
 
             var password = _passwordHasher.Hash(command.Password);
+            var rePassword = _passwordHasher.Hash(command.RePassword);
             var path = "profilePhotos";
             var picturePath = _fileUploader.Upload(command.ProfilePhoto, path);
-            var account = new Account(command.Fullname, command.Mobile, password, picturePath, command.RoleId,
-                command.Username);
+            var account = new Account(command.Fullname, command.Mobile, password, rePassword, picturePath,
+                command.RoleId, command.Username);
+
+            if (command.Password != command.RePassword)
+                return operation.Failed(ApplicationMessages.PasswordNotMatch);
+
             _accountRepository.Create(account);
             _accountRepository.SaveChanges();
             return operation.Succeeded();

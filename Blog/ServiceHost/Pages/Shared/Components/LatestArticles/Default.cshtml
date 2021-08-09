@@ -15,34 +15,34 @@
             <div class="post-content post-modern col-md-9">
                 @foreach (var article in Model)
                 {
-                <div class="post-item">
-                    <div class="post-image">
-                        <a asp-page="./Article" asp-route-id="@article.Slug">
-                            <img alt="@article.PictureAlt" title="@article.Title" src="~/Theme/assets/images/blog/@article.Picture">
-                        </a>
-                    </div>
-                    <div class="post-content-details">
-                        <div class="post-title">
-                            <h3>
-                                <a asp-page="./Article" asp-route-id="@article.Slug">@article.Title</a>
-                            </h3>
+                    <div class="post-item">
+                        <div class="post-image">
+                            <a asp-page="./Article" asp-route-id="@article.Slug">
+                                <img alt="@article.PictureAlt" title="@article.Title" src="~/Theme/assets/images/blog/@article.Picture">
+                            </a>
                         </div>
-                        <div class="post-description">
-                            <p>@article.ShortDescription</p>
-                            <div class="post-read-more" id="articleSlug">
-                                <a class="read-more" asp-page="./Article" asp-route-id="@article.Slug">
-                                    بیشتر بخوانید
-                                    <i class="fa fa-long-arrow-right"></i>
-                                </a>
+                        <div class="post-content-details">
+                            <div class="post-title">
+                                <h3>
+                                    <a asp-page="./Article" asp-route-id="@article.Slug">@article.Title</a>
+                                </h3>
+                            </div>
+                            <div class="post-description">
+                                <p>@article.ShortDescription</p>
+                                <div class="post-read-more" id="articleSlug">
+                                    <a class="read-more" asp-page="./Article" asp-route-id="@article.Slug">
+                                        بیشتر بخوانید
+                                        <i class="fa fa-long-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-meta">
+                            <div class="post-date">
+                                <span class="post-comments-number">@article.PublishDate</span>
                             </div>
                         </div>
                     </div>
-                    <div class="post-meta">
-                        <div class="post-date">
-                            <span class="post-comments-number">@article.PublishDate</span>
-                        </div>
-                    </div>
-                </div>
                 }
 
                 <div class="text-center">
@@ -83,21 +83,16 @@
                 </div>
             </div>
             <div class="sidebar sidebar-modern col-md-3">
-                <div class="widget clearfix widget-contact-us" style="background-image: url('~/Theme/assets/images/world-map.png'); background-position: 50% 55px; background-repeat: no-repeat">
-                    <h4 class="widget-title">Contact us</h4>
+                <div class="widget clearfix widget-contact-us" style="background-image: url('~/Theme/assets/images/world-map.png');background-position: 50% 55px; background-repeat: no-repeat">
+                    <h4 class="widget-title">ارتباط با من</h4>
                     <ul class="list-large list-icons">
                         <li>
-                            @*<i class="fa fa-map-marker"></i>*@
-                            <strong>Address:</strong> 795 Folsom Ave, Suite 600
-                            <br>San Francisco, CA 94107
-                        </li>
-                        <li>
                             @*<i class="fa fa-phone"></i>*@
-                            <strong>Phone:</strong> (123) 456-7890
+                            <strong>موبایل:</strong> 09339614483
                         </li>
                         <li>
                             @*<i class="fa fa-envelope"></i>*@
-                            <strong>Email:</strong> <a href="mailto:first.last@example.com">first.last@example.com</a>
+                            <strong>ایمیل:</strong> <a href="mailto:alirezapakravan111@gmail.com">alirezapakravan111@gmial.com</a>
                         </li>
                     </ul>
                 </div>
